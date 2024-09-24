@@ -59,7 +59,7 @@ spec:
         # Same as found in Dockerfile's CMD but using an unprivileged port
         command:
         - pipenv
-        - -"run"
+        - run
         - gunicorn
         - -b
         - "[::]:8080"
