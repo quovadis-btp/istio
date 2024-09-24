@@ -53,7 +53,7 @@ spec:
     spec:
       serviceAccountName: httpbin
       containers:
-      - image: docker.io/kong/httpbin:0.2.0
+      - image: docker.io/kong/httpbin
         imagePullPolicy: IfNotPresent
         name: httpbin
         # Same as found in Dockerfile's CMD but using an unprivileged port
@@ -66,9 +66,5 @@ spec:
         - httpbin:app
         - -k
         - gevent
-        env:
-        # Tells pipenv to use a writable directory instead of $HOME
-        - name: WORKON_HOME
-          value: /tmp
         ports:
         - containerPort: 8080
