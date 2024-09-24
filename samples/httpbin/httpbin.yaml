@@ -53,11 +53,13 @@ spec:
     spec:
       serviceAccountName: httpbin
       containers:
-      - image: docker.io/kong/httpbin:0.1.0
+      - image: docker.io/kong/httpbin:0.2.0
         imagePullPolicy: IfNotPresent
         name: httpbin
         # Same as found in Dockerfile's CMD but using an unprivileged port
         command:
+        - pipenv
+        - -run
         - gunicorn
         - -b
         - "[::]:8080"
